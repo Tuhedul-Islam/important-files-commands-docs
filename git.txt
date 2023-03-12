@@ -47,6 +47,9 @@ git push origin --delete/-d branch-name (remote branch deleted)
 #Synchronize your branch list
 git fetch -p
 
+#pull remote branch to loacl
+git checkout -b local_branch_name origin/remote_branch_name
+
 #Git refusing to merge unrelated histories on rebase
 git pull origin master --allow-unrelated-histories
 

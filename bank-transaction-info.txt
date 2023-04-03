@@ -1,0 +1,13 @@
+Three types of Fund Trnsfer describe below
+............................................................
+BEFTN/EFT-- Bangladesh Electronic fund transfer Network (No Limit, Free of transection, transfer any bank)
+
+NPSB-- National Payment Switch Bangladesh (Instant fund transfer in online but not included all branch and bank yet, Free included)
+
+Fund Transfer with RTGS-- Real Time Gross Settlement- (within 30 minutes, before manual process, so go to branch, but now-online,)
+[Support 6 cuurency(BDT, British Pound, CAD, Japanese Yen, USD), (Min limit 1 lakh), (Max charge 100tk)]
+
+...............................................................
+atm and pos transaction....(Both of them are in NPSB policy)
+atm transaction -- For cash withdraw (Where an ATM is used to give support to banking services)
+pos transaction -- For transfering cash digitally from account to account (P.O.S. is used to give support to business for cash transaction).

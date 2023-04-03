@@ -1,0 +1,91 @@
+##################### Inside of Document.ready function ############ 
+$(document).on('change', '.selected_item', function () {
+                // do anythings
+            });
+
+$(".selected_item").on('change', function () {
+                // do anythings
+           });
+
+$('.selected_item').change(function () {
+            // do anythings
+           });
+
+##################### Check The 'Check Box' checked or not ############
+if ($(this).prop('checked')==true){
+            //do something
+            }
+
+
+##################### Store the collected value in an array and place the array to a input field ############
+<input class="qtyofselecteditems" type="hidden" name="qtyofselecteditems[]" value="">            
+
+	  function updateQuantityOfSelectedItems() {
+                var quantityOfSelectedItem = [];
+                var ii = 0;
+
+                $('.selected_item').each(function () {
+                    if ($(this).prop('checked')==true){
+                        var quantity = $(this).closest("tr").find('.item_qty').val();
+                        quantityOfSelectedItem[ii++] = quantity;
+                    }
+                });
+                console.log(quantityOfSelectedItem);
+                $('.qtyofselecteditems').val(quantityOfSelectedItem);
+            }
+
+
+##################### Get the same input  fields value array and make sum ############
+Proccess 1...........Get the same input  fields value array
+var movies = $('input[name="movies[]"]').map(function(){
+   return this.value;
+}).get();
+
+Proccess 2...........Get the same input  fields value array
+var values = [];
+$("input[name='items[]']").each(function() {
+    values.push($(this).val());
+});
+
+
+Proccess 4...........And Then 'ADD' the gotted arrays value from [Proccess 1 or Proccess 2]
+var ForSubTotal = 0;
+                for (var i = 0; i < total_amount.length; i++) {
+                    ForSubTotal += total_amount[i] << 0;
+                    // ForSubTotal += Number(total_amount[i]) ;
+                }
+                // console.log(ForSubTotal);
+
+
+Proccess 3...........Get same input  fields value and add all.
+var cnt = 0;  
+    $("[name='theName']").each(function() {
+        cnt += Number(this.value);
+    });
+
+Proccess 5...........Get same input  fields value and add all.
+	var totalPricesum = 0;
+            function sumOfTotalPrice(){
+                totalPricesum = 0;
+                $("input[class *= 'sutotal_price']").each(function(){
+                    totalPricesum += +$(this).val();
+                });
+                return totalPricesum
+            }
+
+
+##################### Number to words function in jQuery############
+var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
+            var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
+
+            function inWords (num) {
+                if ((num = num.toString()).length > 9) return 'overflow';
+                n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+                if (!n) return; var str = '';
+                str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
+                str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
+                str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
+                str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
+                str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) : '';
+                return str;
+            }

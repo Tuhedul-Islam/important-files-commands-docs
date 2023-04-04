@@ -10,3 +10,8 @@ if($request->file('site_logo')) {
                 $image->move(public_path($destinationPath), $imageName);
                 $system_setting->site_logo = $destinationPath.$imageName;
             }
+
+
+######display uploaded image using javascript/jquery######
+https://www.tutorialrepublic.com/faq/how-to-preview-an-image-before-it-is-uploaded-using-jquery.php
+https://stackoverflow.com/questions/31710127/javascript-image-upload-and-display

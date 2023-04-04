@@ -2,8 +2,11 @@
 if($request->file('site_logo')) {
                 $this->validate($request,['site_logo'=>'mimes:jpeg,jpg,png']);
                 $image = $request->file('site_logo');
-                $imageName = time().trim($image->getClientOriginalName());
-                @unlink(public_path("frequently-changing/files/favicon/$system_setting->site_logo"));
-                $image->move(public_path('frequently-changing/files/favicon/'), $imageName);
-                $system_setting->site_logo = $imageName;
+                $imageName = time().rand().'.'.trim($image->getClientOriginalExtension());
+                $destinationPath = 'frequently-changing/files/favicon/';
+                if (isset($system_setting->site_logo)){
+                    @unlink(public_path($system_setting->site_logo));
+                }
+                $image->move(public_path($destinationPath), $imageName);
+                $system_setting->site_logo = $destinationPath.$imageName;
             }

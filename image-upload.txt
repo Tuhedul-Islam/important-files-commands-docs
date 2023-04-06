@@ -1,4 +1,6 @@
 ####Upload Image####
+//Request::file('site_logo')->isValid();
+//Request::hasFile('site_logo');
 if($request->file('site_logo')) {
                 $this->validate($request,['site_logo'=>'mimes:jpeg,jpg,png']);
                 $image = $request->file('site_logo');

@@ -1,0 +1,462 @@
+Local-23.02.2608.212.53.000.19-20.47077
+Live- 23.02.2608.212.53.000.19-20.47421, 23.02.2608.212.53.000.19-20.47422
+01686690413
+Oracle Enterprise Manager Database Express URL: https://localhost:5500/em
+--Laravel components like Events, Queue, Notification, Mail, Laravel Mix experience.
+--(Inventory, Accounting, CRM, HR & Payroll and Real Estate, Hospital ERP, Garments ERP Software development experience will be added plus)
+---Applied---
+https://abasas.tech/careers/11
+=========BB Complain Desk============
+oahr.query@bb.org.bd
+=========Millinium ftp============cl=proxy horse.
+http://fun.mcnbd.com/   ----millinium---ftp
+fancybox.sweetalert.sweetalert2.semantic ui.
+===Udemy===https://freecoursesite.com/===https://getfreecourses.co/===https://courseclub.me/
+username: salehahammednoor@gmail.com   pass: Vue@2020
+=========================================================================================================================
+//$demands->where(DB::raw("DATE(demand_to_lpr.when_needed) >= '".$from."'"));
+reply 1988
+kissasian
+money heist
+http://bdiptv.net/
+tracert fnf.thinkcreativebecreative.com
+
+
+
+
+
+
+$(document).on("click",".removeRow",function(){
+                $(this).closest('.remove').remove();
+                i = i-1;
+            });
+
+
+$immediatelyExpire = OnlineAuctionFrontController::immediatelyExpire();//dd($immediatelyExpire);
+$data['immediatelyExpire'] = $immediatelyExpire;
+
+@section('js')
+    <!-- Count Down For Header Menu-->
+    <script src="{!! asset('public/count-down-js/count_down.js')!!}"></script>
+    <script type="text/javascript">
+        var auctionInfoHeaderTimer = {!! $immediatelyExpire !!};
+        countDownAuctionTimer(auctionInfoHeaderTimer);
+    </script>
+@endsection
+
+
+...................................
+@for($j=0; $j < count($ta)/20; $j++)
+<?php $l++; ?>
+...
+<pagebreak/>
+@endfor
+..........................
+$mainArray[$key]
+@if($mn == 0)
+           <td style="@if($xyz>1)color: white; border: 1px solid white !important; @endif" rowspan="">{!! $sl !!}</td>
+           <!-- <td style="@if($xyz>1)color: white; border: 1px solid white !important; @endif" rowspan="{!! count($mainArray[$key]) !!}">{!! $key !!}</td> -->
+@endif
+
+
+########################sweet alert########################
+swal.fire("Send Your CV!!", apply_option_val, "info").then(function() {
+                                //window.location.href = "{{url('https://stackoverflow.com/questions/37358423/how-to-redirect-page-after-click-on-ok-button-on-sweet-alert')}}";
+                            });
+                            Swal.fire({
+                                icon: 'success',
+                                text: 'You have a bike!'
+                            }).then(function() {
+                                window.location.href = "{{url('https://stackoverflow.com/questions/37358423/how-to-redirect-page-after-click-on-ok-button-on-sweet-alert')}}";
+                            });
+
+
+########## array slice #################
+		    @for($t=0; $t<3; $t++)
+                        <div class="col-md-4">
+                            <ul>
+                                @foreach(array_slice($categories_array, $start_i, $limit) as $key=>$cat_vl)
+                                    <?php
+                                    $cat_info = \App\Categories::find($cat_vl);
+                                    $TotalJob = \App\Posts::where('cat_id', $cat_vl)->where('type', 'basic')->where('status', 'active')->count();
+                                    ?>
+
+                                    <li class="" style="list-style-type: none; padding-bottom: 12px;">
+                                        &#10148; <a class="text-muted font-weight-bold" href="{{url('search?cat=')}}{{str_replace(' ', '+', $cat_info->name)}}">{{$cat_info->name}} ({{$TotalJob}})</a>
+                                    </li>
+                                    <?php $start_i++;?>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endfor
+
+
+===========auction mail===============
+karnel, MailcontrollerH, AuctionMailSend.php (Command file) 
+===========Auction Cron Job---NSSD DHAKA===============
+36 15 * * * /usr/bin/php /var/www/nssd.navy.mil.bd/public_html/artisan auction_mail:send >> /var/www/nssd.navy.mil.bd/public_html/storage/logs/auction_logs.log 2>&1
+
+All Auction Controller
+1. AuctionParticipantController
+2. AuctionItemController
+3. OnlineauctionFrontController
+4. AddAuctionItemController
+5. ItemCategoryController
+6. AuctionCreateController
+7. AuctionWinnerController
+8. AuctionTvController
+
+add item---auction item
+item cat -- auction cat
+auction -- auction schedule
+auction item --auction lot
+
+#Module (with access control)
+#Auction Management (payment gateway integration)
+#Auction Category-- id, title, description, security_amount, status---
+#Participent(From back & front)
+#Auction Create-- id, auction_category_select, auction_name, auction_desc, start_dateTime,
+end_dateTime, status,
+#Auction Item(pending, waiting for approved, approved)-- auction_select, lot_no, 
+item_name, item_quantity, min_amount, status, desc, approved_status
+
+
+<li class="{{ ($routeSegment3 == 'online-auction' || $routeSegment3 == 'auction-terms-cons') ? 'active' : '' }} {{ ($aliveAuctionCheck > 0) && ($routeSegment3 != '') ? 'openBadges' : '' }}     {{ (($aliveAuctionCheck > 0) && ($routeSegment1 == '') && ($routeSegment3 == '')) && $urlForBadge !='http://nssd.navy.mil.bd/0/0'  ? 'openBadge' : '' }}     {{ (($aliveAuctionCheck > 0) && ($routeSegment1 == '') && ($routeSegment3 == '')) ? 'openBadgeH' : '' }} " >
+                                <a href="{!! isset($auctionConditionAgree) ?  URL::to('0/0/online-auction') : URL::to('0/0/auction-terms-cons/') !!}" >Online Auction</a>
+                                <ul>
+                                    <li class="" >
+                                        <span class="text-center font-weight-bold text-uppercase text-danger" id="immediatelyExpire"></span>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+//Front auction New Practice
+//        $openAuctionId = OpenAuctionCreate::join('auctions', 'open_auction_create.auction_id', '=', 'auctions.id')
+//            ->select('open_auction_create.*', 'auctions.start_time', 'auctions.end_time')
+//            ->whereNotNull('open_auction_create.status')
+//            ->whereNotNull('open_auction_create.waiting_for_approve_status')
+//            ->whereNotNull('open_auction_create.approved_status')
+//            ->groupBy('open_auction_create.auction_id')
+//            ->groupBy('open_auction_create.item_cat_id')
+//            ->where('auctions.start_time', '<=',date('Y-m-d H:i:s'))
+//            ->where('auctions.end_time', '>=',date('Y-m-d H:i:s'));
+
+
+//Front auction old
+//        $open_auction_info = OpenAuctionCreate::join('auctions', 'open_auction_create.auction_id', '=', 'auctions.id')
+//            ->join('item_categories', 'open_auction_create.item_cat_id', '=', 'item_categories.id')
+//            ->select('open_auction_create.*', 'auctions.auction_name as auction_name', 'auctions.start_time', 'auctions.end_time', 'item_categories.cat_title as item_category')
+//            ->whereNotNull('open_auction_create.status')
+//            ->whereNotNull('open_auction_create.waiting_for_approve_status')
+//            ->whereNotNull('open_auction_create.approved_status')
+//            ->where('auctions.start_time', '<=',date('Y-m-d H:i:s'))
+//            ->where('auctions.end_time', '>=',date('Y-m-d H:i:s'))
+//            ->orderBy('open_auction_create.id', 'DESC');
+//
+//            if (!empty($search_lot)){
+//                $open_auction_info->where('open_auction_create.lot_no', 'LIKE', "%$search_lot%");
+//            }
+//        //dd($open_auction_info->get());
+//        $open_auction_info = $open_auction_info->paginate(20);
+
+
+
+$updateItemTable = OpenAuctionCreate::find($open_auction_id);
+//Update auction_item table
+                AuctionItem::where('open_auction_create_id', $updateItemTable->id)
+                    ->where('auction_id', $updateItemTable->auction_id)
+                    ->where('item_cat_id', $updateItemTable->item_cat_id)
+                    ->where('lot_no', $updateItemTable->lot_no)
+                    ->update([
+                        'auction_id' => $request->auction_id,
+                        'item_cat_id' => $request->item_cat_id,
+                        //'lot_no' => $request->lot_no
+                    ]);
+
+
+            //get item
+//            foreach ($openAuctionId as $val){
+//                $totalLot = OpenAuctionCreate::select('id', 'auction_id', 'item_cat_id', 'lot_no')
+//                    ->where('auction_id', $val->auction_id)
+//                    ->where('item_cat_id', $val->item_cat_id)
+//                    ->whereNotNull('status')
+//                    ->whereNotNull('waiting_for_approve_status')
+//                    ->whereNotNull('approved_status')
+//                    ->get();
+//
+//                //dd($totalLot); //2
+//
+//                $allItem = [];
+//                foreach ($totalLot as $lot){
+//                    $auctionItem = AuctionItem::where('open_auction_create_id', $lot->id)->get();
+//                    $allItem[$lot->lot_no][] = $auctionItem;
+//                }
+//                //dd($allItem);
+//            }
+
+            //old
+//            $auction_info = AuctionItem::join('auctions', 'auction_items.auction_id', '=', 'auctions.id')
+//                ->join('item_categories', 'auction_items.item_cat_id', '=', 'item_categories.id')
+//                ->join('open_auction_create', 'auction_items.open_auction_create_id', '=', 'open_auction_create_id.id')
+//                ->select('auction_items.*', 'open_auction_create.*', 'auctions.auction_name as auction_name', 'item_categories.cat_title as item_category')
+//                ->whereNotNull('open_auction_create.status')
+//                ->whereNotNull('open_auction_create.waiting_for_approve_status')
+//                ->whereNotNull('open_auction_create.approved_status')
+//                ->orderBy('open_auction_create.id', 'DESC');
+//            dd($auction_info->get());
+//            if (!empty($search_lot)){
+//                $auction_info->where('open_auction_create.lot_no', 'LIKE', "%$search_lot%");
+//            }
+//            $auction_info = $auction_info->paginate(20);
+
+
+<div class="form-group col-xs-12 col-sm-12 col-md-12" id="search_auction_name_div" style="display: none; display: block; position: absolute; left: 0px;"></div>
+//Start Auction Name Search
+            $('#auction_name').keyup(function() {
+                var input_val = $(this).val();
+
+                if(input_val == ''){
+                    $('#auction_name').val('');
+                    $('#auction_id').val('');
+                    $('#search_auction_name_div').fadeOut();
+                }
+
+                if (input_val != '') {
+                    var _token = "<?php echo csrf_token(); ?>";
+
+                    $.ajax({
+                        url: "auction-name-live-search/",
+                        method: "GET",
+                        data: {input_val: input_val},
+                        success: function (data) {
+                            // console.log(data);
+                            $('#search_auction_name_div').fadeIn();
+                            $('#search_auction_name_div').html(data);
+                        }
+                    });
+                }
+
+            });
+
+            $(document).on('click', '.searchAuctionName', function () {
+                $('#search_auction_name_div').fadeOut();
+                $('#auction_name').val('');
+                $('#auction_id').val('');
+                $('#auction_name').val($(this).text());
+                $('#auction_id').val($(this).attr("value"));
+            });
+            //End Auction Name Search
+
+
+po-view.................................
+            //if no item with the same po
+//            if ( count($selectedSupItemInfo[$dm_col_id]) == 0){
+//
+//                $selectedSupItemInfo[$dm_col_id] = DemandSuppllierToCollQuotToItem::
+//                join('item_to_demand', 'demand_supplier_to_coll_qut_to_item.item_id', '=', 'item_to_demand.id')
+//                    ->join('deno', 'item_to_demand.deno_id', '=', 'deno.id')
+//                    ->join($this->tableAlies.'_items', 'item_to_demand.item_id', '=', $this->tableAlies.'_items.id')
+//                    ->select('demand_supplier_to_coll_qut_to_item.*','deno.name as deno_name', 'deno.id as deno_id', $this->tableAlies.'_items.item_name as item_item_name', $this->tableAlies.'_items.model_number as item_model_number',$this->tableAlies.'_items.part_number as item_part_number',$this->tableAlies.'_items.brand as item_brand',$this->tableAlies.'_items.nsn as item_nsn', $this->tableAlies.'_items.st_part_number as item_st_part_number','item_to_demand.comments')
+//                    ->where('demand_supplier_to_coll_qut_to_item.dmn_to_cal_qut_id','=',$dm_col_id)
+//                    ->where('demand_supplier_to_coll_qut_to_item.select_as_winner','=',1)
+//                    ->where(function ($query) use ($podataId){ $query->whereNull('demand_supplier_to_coll_qut_to_item.po_id')->Orwhere('demand_supplier_to_coll_qut_to_item.po_id',$podataId);})
+//                    ->orderBy('demand_supplier_to_coll_qut_to_item.item_id','ASC');
+//                if(!empty($demandToTenInfo->head_ofc_apvl_status)){
+//                    $selectedSupItemInfo[$dm_col_id]->where('demand_supplier_to_coll_qut_to_item.itm_to_sup_nhq_app_status','=',1);
+//                }
+//                $selectedSupItemInfo[$dm_col_id] = $selectedSupItemInfo[$dm_col_id]->get();
+//
+//            }
+...................................
+
+................................po repeat order............................
+$itemsToUpdate = array_map('current',\App\DemandSuppllierToCollQuotToItem::
+            select('item_id')
+            ->where('lpr_id','=',$demandToLprId)
+            ->where('tender_id','=',$tenderId)
+            ->where('select_as_winner','=',1)
+            ->whereIn('dmn_to_cal_qut_id',$demndToCollQutIds)
+            ->whereIN('item_id', $request->selected_item)
+            ->get()->toArray());
+
+if(!empty($demandToTenInfo->head_ofc_apvl_status)){
+                                        $selectedSupItemInfo[$dm_col_id]->where('demand_supplier_to_coll_qut_to_item.itm_to_sup_nhq_app_status','=',1);
+                                    }
+
+//        \DB::table('demand_supplier_to_coll_qut_to_item')
+//            ->where('dmn_to_cal_qut_id', $po_repeat->dem_to_col_id)
+//            ->where('tender_id', $tenderId)
+//            ->update(['po_id' => null]);
+
+//        \DB::table('demand_to_collection_quotation')
+//            ->where('id', $po_repeat->dem_to_col_id)
+//            ->where('tender_id', $tenderId)
+//            ->update(['po_status' => null, 'repeat_po_id' => $po_id]);
+->where('dmn_to_cal_qut_id', $demndToCollQutIds)
+
+===============================free visitor counters==================================
+<div class="text-center">
+	<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/774807/t/0"></script
+</div>
+
+
+
+=================Basic Query==========================
+SELECT contact_info.name as ci_name, contact_info.email as ci_email, contact_info_copy.name cip_name, contact_info_copy.email as cip_email, contact_info_copy.id cip_id
+FROM contact_info
+INNER JOIN contact_info_copy ON contact_info.email=contact_info_copy.email;
+
+SELECT contact_info.name as ci_name, contact_info.email as ci_email, contact_info_copy.name cip_name, contact_info_copy.email as cip_email, contact_info_copy.id cip_id
+FROM contact_info
+LEFT JOIN contact_info_copy ON contact_info.email=contact_info_copy.email WHERE contact_info_copy.email IS NULL;
+
+SELECT contact_info.name as ci_name, contact_info.email as ci_email, contact_info_copy.name cip_name, contact_info_copy.email as cip_email, contact_info_copy.id cip_id
+FROM contact_info
+RIGHT JOIN contact_info_copy ON contact_info.email=contact_info_copy.email WHERE contact_info.email IS NULL;
+
+SELECT email, COUNT(*) c FROM contact_info GROUP BY email HAVING c > 1;
+
+
+//        $dt = DemandToTender::select(DB::raw('DATE(tender_floating_date) as date'))
+//            ->whereNotNull('tender_floating')
+//            ->addSelect(DB::raw("count('demand_to_tender.tender_id') as total_tender"))
+//            ->groupBy('date')
+//            ->orderBy('tender_floating_date', 'ASC')->limit(5)->get();
+//        dd($dt);
+
+
+
+Basic Mail Send..............................
+public function basic_email() {
+//        dd('gg');
+        $data = array('name'=>"Touhid");
+
+        Mail::send('mailH.mailTemplete', $data, function($message) {
+            $message->to('tuhedulislamh15@gmail.com', 'Touhid')->subject('Laravel Basic Testing Mail');
+//            $message->attach('C:\laravel-master\laravel\public\uploads\image.png');
+            $message->from('tuhedulislamhridoyh18@gmail.com','issl');
+        });
+        echo "Email Sent. Check your mailTemplete.";
+    }
+
+
+$pdf_name = date('Y-m-d').time() . ".pdf";
+        $path = 'po_pdf/' . $pdf_name;
+        $podataForPDfSave     = \App\PoDatas::find($podataId);
+        $podataForPDfSave->po_pdf_file = $path;
+        $podataForPDfSave->save();
+//        $pdf = PDF::loadView('mail')->save($path);
+//        $path = public_path('po_pdf/' . $pdf_name);
+
+Storage::put($path, $pdf->output());
+
+po-cr-ins-d44v
+ACINS --ins,
+OTHERS --d44v
+
+<script src="{!! asset('public/frontend/js/jquery.min.js')!!}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script rel="javascript" src="{{ url('public/vendor/select2-3.5.2/Updatedselect2.min.js') }}"></script>
+<link rel="stylesheet" href="{{ url('public/vendor/select2-3.5.2/Updatedselect2.min.css') }}">
+
+canceled, Retender; - -
+Open, not po; Pending Pending
+Open, po; po_Done supplier_name
+Open, po cancel; Canceled -
+
+@if( empty($po_total->po_cancel_status) && empty($allT->cancel_status) && empty($allT->retender) && empty($pending_status) )
+                                                                @if(!empty($po_details) && !empty($company_name))
+                                                                    @foreach($company_name as $value)
+                                                                        {{ $value->suppliernametext }}
+                                                                        <?php $count--; ?>
+                                                                        @if($count > 0) , @endif
+                                                                    @endforeach
+                                                                @else
+                                                                    {!! '―' !!}
+                                                                @endif
+                                                            @elseif( !empty($po_total->po_cancel_status) || !empty($allT->cancel_status) || !empty($allT->retender) )
+                                                                {!! '―' !!}
+                                                            @else
+                                                                    <span class="text-success">{!! 'Pending' !!}</span>
+                                                            @endif
+
+
+#Use JPEG instead of PNG
+
+.....................................................................................................
+
+$winnerInQc = array_map('current', DemandToCollectionQuotation::select('tender_id')->whereNotNull('winner')->whereNotNull('po_status')->whereIn('tender_id', $po_approved_tenders)->get()->toArray());
+            if(!empty($winnerInQc)){
+                $winnerInQc = array_unique($winnerInQc);
+            }
+
+            $allDetails = PoDatas::join('demand_to_collection_quotation', 'demand_to_collection_quotation.tender_id', '=', 'po_datas.tender_id')
+                        ->join($zoneInfo->alise.'_tenders', $zoneInfo->alise.'_tenders.id', '=', 'po_datas.tender_id')
+                        ->select($zoneInfo->alise.'_tenders.tender_title',$zoneInfo->alise.'_tenders.id as tenderId', $zoneInfo->alise.'_tenders.tender_number',$zoneInfo->alise.'_tenders.tender_opening_date', 'po_datas.id as poId', 'po_datas.po_approve_date')
+                        ->whereIn($zoneInfo->alise.'_tenders.id', $winnerInQc)
+                        ->whereNotNull('po_datas.po_approve_status')->whereNull('po_datas.cancel_status')
+                        ->whereNotNull('demand_to_collection_quotation.winner')->whereNotNull('demand_to_collection_quotation.po_status')
+                        ->orderBy('po_datas.id', 'desc')
+//                        ->take(5)
+                        ->get();
+
+
+            $data['allDetails'] = $allDetails;
+//            dd($allDetails);
+
+
+
+......Check....
+// CST:-Approved
+            $cst_approved = \App\DemandToTender::select('tender_id as tenderId')
+                                                ->where('coll_quat_app_status','=',1)
+                                                ->whereNotNull('cst_pending_sta')
+                                                ->whereNotNull('first_cst_app_status')
+                                                ->whereNotNull('second_cst_app_status')
+                                                ->whereNotNull('cst_draft_status')
+                                                ->where(function($q) {
+                                                    $q->whereNull('demand_to_tender.tender_status');
+                                                    $q->orWhere('demand_to_tender.tender_status','=',1);
+                                                })
+                                                ->orderBy('id', 'desc')
+                                                ->get();
+            $data['cst_approved'] = $cst_approved;
+
+$check = in_array($allT->tender_id, $po_approved_tenders);
+                                                    if (!empty($check) && $check!=null){
+                                                        $po_details = \App\PoDatas::where('tender_id', '=', $allT->id)->whereNotNull('po_approve_status')->whereNull('cancel_status')->first();
+                                                        $company_name = \App\DemandToCollectionQuotation::select('suppliernametext')->where('id', '=', $po_details->dem_to_col_id)->first();
+                                                    }
+
+// All Tenders
+            $allTenders = DB::table($zoneInfo->alise.'_tenders')
+                ->select($zoneInfo->alise.'_tenders.tender_title',$zoneInfo->alise.'_tenders.id', $zoneInfo->alise.'_tenders.tender_number',$zoneInfo->alise.'_tenders.tender_opening_date')
+                ->where('status_id','=',2)
+                ->take(500)
+                ->orderBy('id', 'desc')
+                ->get();
+
+// PO Approved Tenders
+            $po_approved_tenders = array_map('current',\App\PoDatas::select('tender_id')->whereNotNull('po_approve_status')->whereNull('cancel_status')->get()->toArray());
+            if(!empty($po_approved_tenders)){
+                $po_approved_tenders = array_unique($po_approved_tenders);
+            }
+            $data['po_approved_tenders'] = $po_approved_tenders;
+
+
+tender:approved
+float_tender_app_status,
+Qc:approved
+float_tender_app_status,coll_quat_app_status, tender_quation_collection
+Cst:approved
+cst_draft_status,
+PO:approved
+po_approve_status
+Bill:approved
+approve_by,status==2
+
+....
+CR View,Inspection,Dv44 Voucher
+

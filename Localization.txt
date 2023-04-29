@@ -1,0 +1,71 @@
+###Localization###
+### Make a middleware and add it to a Route when change the language###
+
+Localization Middleware....
+public function handle(Request $request, Closure $next)
+    {
+        app()->setLocale(getUserLanguage());
+        return $next($request);
+    }
+
+
+In helpers.php.....
+ function getUserLanguage(): string{
+    if ((Auth::check()) && (Auth::user()->language != null)) {
+        $language = Auth::user()->language;
+    } else {
+        $language = "en";
+    }
+    return $language;
+}
+
+
+Language Update/Edit...................
+public function languageEdit($lang){
+        $data['contents'] = [];
+        $lang_files = ['en', 'bn'];
+        if (in_array($lang, $lang_files)){
+            //$file_data = include(resource_path("lang/$lang/index.php"));
+            $file_data = resource_path()."/lang/$lang/index.php";
+            $data['contents'] = File::getRequire($file_data);
+            return view('backend.system-management.localization.edit-lang', compact('data', 'lang'));
+        }else{
+            return redirect('settings/language-setting');
+        }
+    }
+
+    public function languageUpdate(Request $request, $lang){
+        $languages = $request->except('_method', '_token');
+        $file = resource_path()."/lang/$lang/index.php";
+        $current = file_get_contents($file);
+
+        //update the existing value
+        $current = "<?php \n return [ \n";
+        if (!empty($request->keywords) && isset($request->keywords)){
+            foreach ($request->keywords as $i=>$key){
+                $current .= '"' . $request->keywords[$i] . '"=>"' . $request->values[$i] . '",';
+                $current .= "\n";
+            }
+        }
+
+        //insert the new value for the repeater
+        //        if (!empty($request->get_key)){
+        //            foreach ($request->get_key as $k=>$v){
+        //                //dd($k, $v, $request->get_val[$k]);
+        //                $current .= '"' . $v . '"=>"' . $request->get_val[$k] . '",';
+        //            }
+        //        }
+        $current .= '];';
+        //dd($current);
+        if (!empty($request->keywords) && isset($request->keywords)){
+            file_put_contents($file, $current);
+            toastr()->success('Data Updated Successfully');
+        }else{
+            toastr()->error('Data Can not be Updated Successfully');
+        }
+
+        return redirect()->back();
+    }
+
+
+

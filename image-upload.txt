@@ -1,0 +1,9 @@
+####Upload Image####
+if($request->file('site_logo')) {
+                $this->validate($request,['site_logo'=>'mimes:jpeg,jpg,png']);
+                $image = $request->file('site_logo');
+                $imageName = time().trim($image->getClientOriginalName());
+                @unlink(public_path("frequently-changing/files/favicon/$system_setting->site_logo"));
+                $image->move(public_path('frequently-changing/files/favicon/'), $imageName);
+                $system_setting->site_logo = $imageName;
+            }

@@ -1,0 +1,103 @@
+##########Git############
+https://www.itsolutionstuff.com/category/gitexample.html?page=1
+https://www.nobledesktop.com/learn/git/git-branches
+https://www.w3docs.com/learn-git.html
+https://www.w3docs.com/snippets/git/how-to-delete-both-local-and-remote-branches-in-git.html
+
+#Git Add/commit/pull/push
+ssh-keygen
+git config --global user.name "Haresh Patel"
+git config --global user.email "itsolutionstuff@gmail.com"
+git config --global user.password "itsolutionstuff@gmail.com"
+git config --list
+
+git add .
+git commit -m ""
+git pull
+git push/git push origin -u master
+git ls-files (see git files)
+git log
+git log --diff-filter=D --summary (see deleted files)
+git branch (see all local branch)
+git branch -r(see all remote branch)
+git branch -a(see all local & remote branch)
+git checkout branch (switch branch)
+git clone git@github.com:savanihd/Git-Project.git (clone)
+#Remote Branch add
+git remote add origin git@github.com:github_name/repo_name
+git diff (see what you’ve changed but not yet staged)
+git branch --set-upstream-to=origin/master<local_branch> master<remote_branch> (to set tracking information for this branch)
+
+
+#How to merge a branch
+git merge branch1 branch2 ... (using octopus strategy)
+git push origin master
+git merge --abort (To abort merge)
+git merge --continue (Solve Merge Conflict)
+
+
+#Create New Branch using Git Command
+git checkout -b new-branch (locally created)
+git push -u origin new-branch (Pushing a local branch to remote)
+
+#Delete New Branch using Git Command
+git branch -d branch-name (locally deleted)
+git push origin --delete/-d branch-name (remote branch deleted)
+
+#Synchronize your branch list
+git fetch -p
+
+#pull remote branch to loacl
+git checkout -b local_branch_name origin/remote_branch_name
+
+#Git refusing to merge unrelated histories on rebase
+git pull origin master --allow-unrelated-histories
+
+#Change Git Commit Message Before Push
+git commit --amend -m "updated commit message" (Directly assign)
+git commit --amend (See & Assign)
+
+#Remove File from Git Commit Before Push
+git reset --soft HEAD~1 or git reset --soft HEAD^ or git reset HEAD~
+git restore --staged test.html (then commit again or re-use the previous commit)
+git status
+
+#git Hard Reset
+git reset --hard HEAD~ or git reset --hard
+
+#Re-use the same commit message:
+git commit -c ORIG_HEAD
+
+#Rename Branch using Git Command
+git branch
+git branch -m branch-name
+
+#How to git ignore file permissions changes for commit
+git config core.fileMode false
+
+#Check which remote url now available in your project
+git remote -v
+
+#Change Remote from HTTPS to SSH
+git remote set-url origin git@github.com:{USERNAME}/{PROJECTNAME}.git
+
+#Change Remote from SSH to HTTPS
+git remote set-url origin https://...
+git remote set-url --push origin https://...
+
+#Change remote origin
+soln1:
+git remote rm origin
+git remote add origin git@github.com:username/myapp.git
+soln2:
+git remote set-url origin git@github.com:username/myapp.git
+
+#Network is unreachable
+git remote -v
+git remote remove origin
+git remote add origin git@bitbucket.org:hardik/setup_backend.git
+
+
+
+
+

@@ -1,3 +1,4 @@
+=======
 ###Localization###
 ### Make a middleware and add it to a Route when change the language###
 
@@ -66,6 +67,3 @@ public function languageEdit($lang){
 
         return redirect()->back();
     }
-
-
-

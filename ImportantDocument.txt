@@ -1,0 +1,500 @@
+###########################Import Database Command##############################
+mysql -u root -p nssddhk291219 < C:\Users\TOUHID\Downloads\nssddhk291219.sql
+mysql -u root -p shinshin < C:\Users\Fahim\Downloads\shinshin.sql
+
+################## Make a Project Zip in Server####################
+ssh root@ip
+use(cd, ls) go to the target_folder
+zip -r (givefoldername.zip) target_folder.............[like public_html]
+
+################## Cron Set Up in Command##########################
+1 0   * * * /usr/bin/php /var/www/html/artisan subscriber:count >> /var/www/html/storage/mobilog/SubscriberBaseCount.log 2>&1
+1 0   * * * /usr/bin/php /var/www/nssd.navy.mil.bd/artisan auction_mail:send >> /var/www/nssd.navy.mil.bd/storage/logs/auction_logs.log 2>&1
+for edit--- crontab -e
+for edit permission---i [inset path] then [after edit then clik 'Esc'] 
+for save :wq
+for see cron list---- crontab -l
+for delete or remove all cron job---- crontab -r
+###################################################################
+
+###########################Backtrack Limit Set##############################
+ini_set("pcre.backtrack_limit", "5000000");
+
+###########################PDF set as A5 Size page (small)##############################
+$pdf= PDF::loadView('auction-participant-list.auctionParticipantPdf',$data,[],['format' =>  [80, 140]]);
+return $pdf->stream('Auction_Participant.pdf');
+
+
+###########################Increase/Set Session Timeout{config/session.php}##############################
+1.'lifetime' => env('SESSION_LIFETIME', 600),
+2. // 'lifetime' => 1, //in minute (60 [minute] * 10 = 10 hour) or change in php.ini (session.gc_maxlifetime)
+
+###########################Xampp MySql Error [Shutdown unexpectedly]##############################
+Re: XAMMP Control Panel Error when trying start MySql servic
+Postby dibyajena » 01. May 2020 18:08
+
+Open shell from from control panel and start mysql with this command:
+mysqld –-console –-skip-grant-tables –-skip-external-locking
+
+Open another shell from control panel and repair database with this command:
+mysqlcheck -r --databases mysql --use-frm
+
+Stop mysql, close shells and restart mysql normally.
+
+###########################Drop Down Menu/Text Field in one##############################						
+						<div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="sample_number">Sample Number<span class="text-danger"></span></label>
+
+                                                        <select class="form-control" onchange="document.getElementById('displayValue').value=this.options[this.selectedIndex].text;">
+                                                            <option value="As per sample">As per sample</option>
+                                                            <option value="Sample to be submitted">Sample to be submitted</option>
+                                                        </select>
+
+                                                        <input type="text" class="form-control" name="sample_number" id="displayValue" placeholder="add/select a value" onfocus="this.select()"
+                                                               style="position:absolute;top:23px;width:215px;border:1px solid #556;" >
+                                                    </div>
+                                                </div>
+
+
+########################JQuery Date Picker Format################################
+$(document).ready(function () {
+    $( ".datepicker5" ).datepicker( {
+        format : 'dd-mm-yyyy' , or format:d F Y
+        autoclose: true,
+    } );
+});
+
+another....
+$('.pre_tender_meeting').datetimepicker({
+                format: 'D-MM-Y HH:mm:ss',
+            });
+
+
+########################Array_map using################################
+$demandCrToItemInfo = array_map('current', DemandCrToItem::select('coll_qut_tim_id')->get()->toArray());
+array_unique($demandCrToItemInfo)
+
+####################### Find busy aganets between 2 dates OR Slot Matching##############
+$assigned_agent = AssignAgentToProject::where(function ($dateQuery) use ($startTime, $endTime){
+
+            $dateQuery->where(function ($query) use ($startTime, $endTime) {
+                $query->where(function ($q) use ($startTime, $endTime){
+                $q->where('service_start','>=',$startTime)
+                    ->where('service_ends','<=',$endTime); })
+                ->orWhere(function ($q) use ($startTime, $endTime)
+                { $q->where('service_start','<=',$startTime)
+                    ->where('service_ends','>=',$startTime); });})
+                    ->orwhere(function ($query) use ($startTime, $endTime)
+                    {$query->where(function ($q) use ($startTime, $endTime)
+                    { $q->where('service_start','>',$startTime)->where('service_ends','<',$endTime); })
+                    ->orWhere(function ($q) use ($startTime, $endTime){ $q->where('service_start','<=',$endTime)->where('service_ends','>',$endTime); });});
+        })->get();
+
+
+####################### Explode & Indexing##############
+$expdata  = explode('&', $tenderId);
+        $tenderId = $expdata[0];
+        $conditio = $expdata[1];
+
+
+####################### Ternary Condition##############
+var i = "{{count($supplierMultiInfoDetails)==0?0:count($supplierMultiInfoDetails)==1? 1:count($supplierMultiInfoDetails)-1}}";
+
+####################### CheckBox All Checked##############
+<script type="text/javascript">
+            $("#checkAll").click(function(){
+                $('input:checkbox').not(this).prop('checked', this.checked);
+            });
+        </script>
+
+####################### PDF page number(m pdf)##############
+{{-- <td style=" font-style: italic; font-size: 14px;" align="left" width="31%;">Page {PAGENO} of {nbpg}</td>--}}
+
+
+####################### PDF font-family(m pdf)##############
+body{
+            font-family: 'bangla', sans-serif;
+            font-size: 14px;
+        }
+
+
+####################### Multiple Select Box##############
+<div class="col-md-6">
+    <select class="form-control chosen-select" name="supply_cat_id[]" id="supply_cat_id"   multiple="multiple" tabindex="4">
+        <option value="" disabled="">{!! '- Select -' !!}</option>
+        @php $supplyCatId = explode(',', $suppliers->supply_cat_id); @endphp
+        @foreach($supplyCategories as $sc)
+            <option  {{ in_array($sc->id, $supplyCatId) ? "SELECTED" : "" }} value="{!! $sc->id !!}">{!! $sc->description !!}</option>
+        @endforeach
+    </select>
+</div>
+
+####################### Mail Config##############
+Config::set(service.driver,'mailgun')
+Config::get(service.driver)
+
+####################### Artisan Facade##############
+Artisan::call('config:cache');
+
+####################### Go Previous URL##############
+1. <a href="{{URL::previous()}}" class="btn btn-default cancel pull-right" >{!!trans('english.CANCEL')!!}</a>
+2. url()->previous();
+
+####################### Ajax Request In POST Method##############
+$(document).on('change','#selected_supplier',function(){
+                var supplierIds = $(this).val();
+                var lpr_id      = '<?php echo $demandToLprId; ?>';
+                var tender_id   = '<?php echo $tenderId; ?>';
+                if(supplierIds != '' && supplierIds != null){
+
+                    var _token     = "<?php echo csrf_token(); ?>";
+                    $.ajax({
+                        url: '{{ url('winner-wise-items') }}',
+                        method: "POST",
+                        data: {supplierIds: supplierIds, tender_id: tender_id, lpr_id: lpr_id, _token: _token},
+                        success: function (data) {
+                            $("#showSupplierItems").empty();
+                            $("#showSupplierItems").html(data);
+                        }
+                    });
+
+                }else{
+                    $("#showSupplierItems").empty();
+                }
+            });
+
+
+
+####################### Use Unicode To Break (br) in text-area [&#13;&#10;]##############
+<textarea type="text" name="info" class="form-control" id="info">
+		DNS &#13;&#10;CO, NSD Ctg &#13;&#10;CINS -Enclosure Attached
+</textarea>
+
+####################### Local File Download##############
+@if(!empty($pdf_file) && file_exists($pdf_file))
+     <a href="{{ asset($evaluation->file) }}" download="{{$supplier_info->company_name}}">
+          <img style="height: 25px; width: 25px;" src="http://nssd.navy.mil.bd/public/uploads/gallery/pdf_icon.png" alt="PDF">
+      </a>
+@endif
+
+################## Make a Project Zip in Server####################
+ssh root@ip
+use(cd, ls) go to the target_folder
+zip -r (givefoldername.zip) target_folder.............[like public_html]
+
+################## Calculate Total value Of the input_fields with same name in Jquery####################
+var EachInputFieldValue = $('input[name^=each_item_discount]').map(function(idx, elem) {
+                    		return $(elem).val();
+                	  }).get();
+
+//Now make Sum Of the EachInputFieldValue 
+var total = 0;
+    $('.sum').each(EachInputFieldValue , function (index, element) {
+        total = total + parseFloat($(element).val());
+    });
+//OR
+var totalDiscount = 0;
+                for (var i = 0; i < EachInputFieldValue .length; i++) {
+                    totalDiscount += EachInputFieldValue [i] << 0;
+                }
+
+################## Text Field/Input Fiels value will key=>value as [item_id(123)=>"value"]####################
+<textarea name='comment[$qr->item_id]' id='comment' cols='30' rows='2'></textarea>
+
+################## Array Fill [fill()--helper funnction inn laravel]####################
+<?php
+$keys = array('foo', 5, 10, 'bar');
+$a = array_fill_keys($keys, 'banana');
+print_r($a);
+?>
+
+################## Inline Alert (many ways)####################
+<button type="button" onclick="alert('Hello World')">Show Alert</button> [it's perfect]
+<input type='button' onclick="javascript:alert('test');" value='Button'/>
+<input type='button' onclick="alert('a');" value='Button'/>
+
+################## For Flash Message####################
+$(selector for your message).slideDown(function() {
+    setTimeout(function() {
+        $(selector for your message).slideUp();
+    }, 5000);
+});
+
+################## For jQuery & Javascript ####################
+text and textarea elements use 'value' property and 'input' event;
+checkboxes and radiobuttons use 'checked' property and 'change' event;
+select fields use 'value' as a prop and 'change' as an event.
+
+################## In HTML ####################
+Elements that use [src:] script, img, iframe, input, video, frame.
+Elements that use [href:] a link base.
+
+################## Show Already Selected Value ####################
+<?php $selSup = explode(',', $podataInfo->selected_supplier); ?>
+                                            <div class="col-md-12">
+                                                <select class="form-control selectpicker" name="selected_supplier[]" id="selected_supplier" required>
+                                                    <option value="">{!! '- Select -' !!}</option>
+                                                    @foreach($winnerSuppliers as $ws)
+                                                        <option value="{!! $ws->id !!}" @foreach($selSup as $sls) @if($sls==$ws->id) selected @endif @endforeach>{!! $ws->suppliernametext !!}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+################## Window Print With JavaScript ####################
+	   <script>
+               document.addEventListener("DOMContentLoaded", function (event) {
+                   // window.resizeTo(78, 110);
+                   window.print();
+               });
+           </script>
+
+    /* Print Page */
+    @media print {
+        /* Specific Div Print */
+        body * {
+            visibility: hidden;
+        }
+        #section-to-print, #section-to-print * {
+            visibility: visible;
+        }
+        #section-to-print {
+            position: absolute;
+            top: -400px;
+        }
+        /* End Specific Div Print */
+
+        body {
+            /*width:78px;*/
+            /*height: 110px;*/
+        }
+        @page {
+            size: A4 landscape;
+            /*size: 5.5in 8.5in ;*/
+            /*scale: 150px;*/
+            padding-top: 0px;
+            margin-top: 100px;
+        }
+    }
+
+################## Download From Function ####################
+return Response::download(public_path() . '/po_specification/po_spicification_pdf/' . $poData->specification,'Po_spec_'.$poData->tender_number.'.pdf');
+
+
+################## Custom Number Format In Bangladeshi Taka ####################
+static function custom_format($n, $d = 0) {
+        if (strpos($n, ".") !== false) {
+            $d = 2;
+        }else{
+            $d = 2;
+        }
+        $n = number_format($n, $d, '.', '');
+        $n = strrev($n);
+
+        if ($d) $d++;
+        $d += 3;
+
+        if (strlen($n) > $d)
+            $n = substr($n, 0, $d) . ','
+                . implode(',', str_split(substr($n, $d), 2));
+
+        return strrev($n);
+    }
+
+
+
+################## Pagination Render ####################
+{{--                             {{ $dailyTender->links()}}--}}
+{{--                            {!! $dailyTender->appends(\Input::except('page'))->render() !!}--}}
+
+                            <!-- paginate -->
+{{--                            @if(!empty($dailyTender) )--}}
+{{--                                {{ $dailyTender->appends(Request::except('page'))->links()}}--}}
+{{--                            @endif--}}
+
+
+################## Unique Validation in Laravel ####################
+$v = \Validator::make($request->all(), [
+'company_name' => 'required|unique:'.\Session::get("zoneAlise").'_suppliers,company_name'
+]);
+	if ($v->fails()) {
+            return redirect('suppliers/suppliers/create')->withErrors($v->errors())->withInput();
+        }
+
+
+################## Paginate an array in Laravel ####################
+Incontroller......................
+
+......use the function......
+$participant = $this->paginates($total_schedule)->withPath("?from=$from&todate=$todate");
+or, $participant = $this->paginates($total_schedule, 50, request('page'), ['path' => request()->path()]);
+
+add extra method....
+$this->paginate($data)->withPath('?type=all');
+$this->paginate($data)->appends(['type'=>'all']);
+$this->paginate($data)->fragment('all');
+
+public function paginates($items, $perPage = 50, $page = null)
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, [
+            'path' => Paginator::resolveCurrentPath(),
+            'pageName' => 'page',
+        ]);
+    }
+.............
+in view......
+$page = \Input::get('page');
+$page = empty($page) ? 1 : $page;
+$sl = ($page-1)*50;
+.........
+{!! $participant->appends(\Input::except('page'))->render() !!}
+or, {{ $participant->render() }}
+
+
+################## Total price sum in jQuery ####################
+var totalPricesum = 0;
+            function sumOfTotalPrice(){
+                totalPricesum = 0;
+                $("input[class *= 'sutotal_price']").each(function(){
+                    totalPricesum += +$(this).val();
+                });
+                return totalPricesum
+            }
+
+
+################## Get Excel File ####################
+$path = $request->file('excelFile')->getRealPath();
+$data = Excel::load($path)->get();
+
+
+################## Make Different Color Of A Div ####################
+<script type="text/javascript">
+
+    var safeColors = ['11','33','66','99','cc','ee'];//["#00e64d","#ff80aa","#990099","#30DDBC","#ff8533"];
+    var rand = function() {
+        return Math.floor(Math.random()*6);
+    };
+    var randomColor = function() {
+        var r = safeColors[rand()];
+        var g = safeColors[rand()];
+        var b = safeColors[rand()];
+        return "#"+r+g+b;
+        //return r;
+    };
+
+    $(document).ready(function(){
+        $('.torlink').each(function() {
+            $(this).css('background',randomColor());
+        });
+    });
+
+</script>
+
+
+################## Get The Number In BDT Format in Jquery ####################
+$('input.number').keyup(function(event) {
+
+  // skip for arrow keys
+  if(event.which >= 37 && event.which <= 40) return;
+
+  // format number
+  $(this).val(function(index, value) {
+    return value
+    .replace(/\D/g, "")
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    ;
+  });
+});
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<input class="number">
+
+################## Generate Eight Character unique Id ####################
+dd( substr(md5(uniqid(random_int(), true)), 0, 8) );
+or...
+dd( substr(md5(uniqid(random_int(0, 50), true)), 0, 15) );
+
+
+################## Add or Sub Minute with PHP date Function ####################
+    $minutes_to_add = 5;
+    $time = new DateTime('2011-11-17 05:05:05');
+    $time->sub(new DateInterval('PT' . $minutes_to_add . 'M'));
+    //$time->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+
+    $stamp = $time->format('Y-m-d H:i:s');
+    echo $stamp;
+
+    =====Alternative====
+    date_default_timezone_set('Asia/Dhaka');
+    echo date('Y-m-d H:i:s');
+
+    //set an date and time to work with
+    $start = '2014-06-01 14:00:00';
+
+    //display the converted time
+    //echo date('Y-m-d H:i:s',strtotime('+1 hour +20 minutes +10 seconds',strtotime($start)));
+
+################## Conditional Query [A table has name, email, age column--find who is adult, kid or teen] ####################
+SELECT email, age,
+CASE WHEN age > 18 THEN 'Adult'
+WHEN age < 13 THEN 'Kid'
+ELSE 'Teen'
+END AS person_type
+FROM persons;
+
+
+################## Make A Column Decimal From VarChar ####################
+->orderBy(\DB::raw("CONVERT(demand_to_collection_quotation.total, DECIMAL)"),'asc')
+
+
+################## Uses Of Array Slice  ####################
+    <?php
+    	$start_i = 0;
+    	$limit = ceil(count($categories_array)/3);
+    ?>
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    @for($t=0; $t<3; $t++)
+                        <div class="col-md-4">
+                            <ul>
+                                @foreach(array_slice($categories_array, $start_i, $limit) as $key=>$cat_vl)
+                                    <?php
+                                    $cat_info = \App\Categories::find($cat_vl);
+                                    $TotalJob = \App\Posts::where('cat_id', $cat_vl)->where('type', 'basic')->where('status', 'active')->count();
+                                    ?>
+
+                                    <li class="" style="list-style-type: none; padding-bottom: 12px;">
+                                        &#10148; <a class="text-muted font-weight-bold" href="{{url('search?cat=')}}{{str_replace(' ', '+', $cat_info->name)}}">{{$cat_info->name}} ({{$TotalJob}})</a>
+                                    </li>
+                                    <?php $start_i++;?>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endfor
+
+                </div>
+            </div>
+
+#######Terms & Conditions##########
+<?php //php 7.0.8
+
+$seq = ['Condition of item', 'aa', 'bb'];
+
+    $var = 'a';
+    $arr = [];
+for($i=0; $i<3; $i++){
+$arr[$i] = $var.'.'.'  '.$seq[$i].' :';
+    $var++;
+}
+
+print_r($arr);
+echo ($arr[0]);
+    
+?>
+
+
+#######Raw Query (aggregate function 'concat') use##########
+$data['officers']= User::select('id', DB::raw("concat(first_name, ' ', last_name) as full_name"))->where('role_id',4)->where('status_id',1)->pluck('full_name', 'id');

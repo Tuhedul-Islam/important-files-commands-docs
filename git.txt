@@ -99,5 +99,28 @@ git remote add origin git@bitbucket.org:hardik/setup_backend.git
 
 
 
+#Git Stash (working on branch A but suddenly need to fix a bug on branch B)In this case, git stage is appear.
+There are few ways to enable branch switching :
+1. Create a commit at that point in branch A, commit and push your changes to fix the bug in B,
+   then check out A again and run 'git reset HEAD^' to get your changes back.
+2. Manually keep the changes in files not tracked by Git.
+
+The second method is a bad idea. The first method, although appearing conventional,
+is less flexible because the unfinished saved changes are treated as a checkpoint rather than
+a patch that's still a work in progress. This is exactly the kind of scenario 'git stash' is designed for.
+
+Here's the sequence to follow when using git stash:
+1. Save changes to branch A.
+2. Run 'git stash'.
+3. Check out branch B.
+4. Fix the bug in branch B.
+5. Commit and (optionally) push to remote.
+6. Check out branch A
+7. 'Run git stash pop' or 'git stash apply' to get your stashed changes back.
+
+* git stash clear (empties the stash list by removing all the stashes)
+* git stash drop <stash_id> (deletes a particular stash from the stash list)
+
+
 
 

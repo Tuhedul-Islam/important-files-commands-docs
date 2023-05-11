@@ -1,0 +1,2 @@
+####in js, select2 not working: then add this line after append####
+$("#section").select2();

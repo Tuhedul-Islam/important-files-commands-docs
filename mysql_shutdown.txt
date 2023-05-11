@@ -1,0 +1,12 @@
+####Mysql Shutdown Unexpectedly problem######
+1. Go to below location-
+2. C:\xampp\mysql\data
+3. Then Copy data folder as old_data
+4. Then delete all file & folder from data folder
+5. Then copy all file & folder from C:\xampp\mysql\backup
+6. Then copy the databases from old_data folder to data folder.
+
+
+####Ignore all/Ignore Issue(Some files errors or issues)######
+1. Go to C:\xampp\mysql\bin
+2. Then dblclick to  mysql_upgrade.exe file.

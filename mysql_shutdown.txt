@@ -7,6 +7,12 @@
 6. Then copy the databases from old_data folder to data folder.
 
 
+####change the file from old data to new data folder####
+ib_logfile0,
+ib_logfile1,
+ibdata1
+
+
 ####Ignore all/Ignore Issue(Some files errors or issues)######
 1. Go to C:\xampp\mysql\bin
 2. Then dblclick to  mysql_upgrade.exe file.

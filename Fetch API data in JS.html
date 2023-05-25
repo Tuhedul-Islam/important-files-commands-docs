@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Show All Data</p>
+<table id="show_data"></table>
+
+<script>
+    var url = "https://sheetsu.com/apis/v1.0db/020b2c0f";
+
+    //Method one to fetch api data
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            let get_data = data;
+            console.log(get_data);
+        })
+        .catch(error => {
+            console.log(error.text());
+        });
+
+
+    //Method two to fetch api data
+    async function fetchText(url) {
+        let response = await fetch(url);
+        //console.log(response.status); // 200
+        //console.log(response.statusText); // OK
+        if (response.status === 200) {
+            //let data = await response.text();
+            let data = await response.json();
+            console.log(data);
+            show(data);
+        }
+    }
+    fetchText(url);
+
+
+    // Function to define innerHTML for HTML table
+    function show(data) {
+        let tab = `<tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Score</th>
+             </tr>`;
+
+        for (let r of data) {
+            tab += `<tr>
+                    <td>${r.id} </td>
+                    <td>${r.name} </td>
+                    <td>${r.score}</td>
+                </tr>`;
+        }
+        document.getElementById("show_data").innerHTML = tab;
+    }
+
+</script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 Spatie cache clear...............................
 php artisan cache:forget spatie.permission.cache
+php artisan permission:cache-reset
 php artisan cache:clear
 
 

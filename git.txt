@@ -121,6 +121,9 @@ Here's the sequence to follow when using git stash:
 * git stash clear (empties the stash list by removing all the stashes)
 * git stash drop <stash_id> (deletes a particular stash from the stash list)
 
+#git log --graph --oneline --all
+https://linuxhint.com/show-git-tree-terminal/
+
 
 
 

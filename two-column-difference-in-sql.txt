@@ -1,0 +1,8 @@
+$numberOfHours = DB::table('employee_leaves')
+            ->whereNotNull('employee_id')
+            ->select('id', DB::raw("TIME_FORMAT(timediff(time_to, time_from), '%H %i %s') as result"))
+            //->select(DB::raw("SUM(time_to_sec(timediff(end_time, start_time)) / 3600) as result"))
+            //->select(DATEDIFF($to_date, $from_date)) 
+            ->limit(2)
+            ->get(['id', 'result']);
+        return $numberOfHours;

@@ -1,0 +1,92 @@
+Bug Fixing....Branch
+bug_fix_188_199
+......................
+Working Branch
+employee_attendance_api
+
+..............Dependancy..............
+Employee Leave (PDF Demo)
+OVERTIME DUTY (work requisition id- From job processing Module)
+Overtime & Calculation (Basic pay- From Salary)
+
+..............FileUploaderTrait Change..............
+Course_name
+Employee_info
+Organization
+Employee_education
+Employee_Family_info
+Employee_Spouse
+ChildInformationController
+NextKinInformationController
+TrainingDetailController
+MissionOrForeignVisitInfoController
+AwardPunishmentController
+EmployeePromotionController
+EmployeeLeaveController
+TransferController
+LoanController
+
+..........Branch Form Comments..........
+employee family info
+employee address info
+employee children info
+employee Spouse
+employee Next of kin
+employee Child info (comment Done)
+Promotion History (Table Dependancy)
+Transfer History (Ty_logs Dependancy)
+
+.............Validation.............................
+'time_from' =>  'nullable|required_if:leave_type_id,2',
+'from_date' => 'nullable|required_if:priority,0,2',
+'caste_name' => 'required|string|max:255|unique:castes,caste_name,NULL,id,deleted_at,NULL',
+'caste_name' => 'required|string|max:255|unique:castes,caste_name,'.$id.',id,deleted_at,NULL',
+###Two Column Combination Validation................
+'district_name' => [
+                'required',
+                'unique:districts,district_name,NULL,id,deleted_at,NULL,division_id,' . $request->division_id,
+                Rule::unique('districts')->where(function ($query) use($request) {
+                    return $query->where('division_id', $request->division_id);
+                })
+            ],
+
+............Filter................
+http://192.168.30.53:8000/api/auth/organizations?page=1&limit=10&sortBy=organization_name&orderBy=DESC&whereClause=[[%22office_pattern_id%22,%22=%22,4]]
+{{baseUrl}}/api/auth/employee-leaves?page=&limit=10&sortBy=&orderBy=DESC&whereClause=[[%22leave_return_status%22,%22=%22,0]]
+http://10.11.105.120:8000/api/auth/employee-leaves/leave-record/?page=&limit=10&sortBy=&orderBy=DESC&whereClause=[[%22from_date%22,%22=%22,2023-08-01]]
+
+
+            $officehasdesgnations =  OfficeDesignationTagging::with(['designation' => function($designationQuery){
+                $designationQuery->select(['id','name', 'name_bn', 'priority_order'])->withCount(['jobjoinings' => function($jobQuery){
+                    $jobQuery->where('current', 1);
+                }])->with(['officehasdesgnations']);
+            }])->whereHas('office', function($officeQuery){
+                $officeQuery->where('status', 1);
+            })
+            //->groupBy('designation_id')->select(['id', 'office_id', 'designation_id', 'permitted_post_quantity']);
+            ->groupBy('designation_id')->select(['id', 'office_id', 'designation_id', 'permitted_post_quantity'])->get();
+
+...Time...................
+foreach ($overtime_schedule as $single_overtime_schedule){
+                $from = Carbon::createFromFormat('H:i:s',$single_overtime_schedule['start_time']);
+                $to = Carbon::createFromFormat('H:i:s', $single_overtime_schedule['end_time']);
+                $diff_in_hours = $to->diff($from);
+
+                dd($diff_in_hours, $diff_in_hours->format('%H:%i:%s'));
+                dd($single_overtime_schedule['start_time'],$single_overtime_schedule['end_time'],$diff_in_hours, $to->diffInMinutes($from));
+            }
+
+.......................
+$numberOfHours = DB::table('session')
+            ->whereNotNull('start_time')
+            ->select(DB::raw("SUM(time_to_sec(timediff(end_time, start_time)) / 3600) as result"))
+            ->get(['result']);
+
+.......................
+Transfer
+//            $create = Transfer::where('employee_id', $request->employee_id)->first();
+//            if (empty($create)){
+//                $create = Transfer::create($create_data);
+//            }else{
+//                $create->update($create_data);
+//            }

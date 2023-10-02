@@ -1,0 +1,8 @@
+Follow the laravel docs
+
+1. composer init (to the package folder)
+2. minimum stability - dev
+3. add package to the main app composer.json file in autoload-dev.
+4. load route, view & others from package service provider's boot method
+5. ready to publish vendor for any project. And register it on boot method.
+6. submit it to the packagist (by login with github account && make sure it is auto updated by pakagist)

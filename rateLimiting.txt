@@ -1,0 +1,18 @@
+ReteLimiting: 
+normally 2 scenerio(web and api).The scenerio may be multiple or custom.
+*in custom scenerio make multiple configureRateLimiting function in RouteServiceProvider.
+
+1. in karnel.php --- 'throttle:2,1', (in $middlewareGroups array -- web & api)
+2. in route file(web.php) --- middleware(['throttle:web']). set from RouteServiceProvider
+3. in route file(web.php) --- middleware(['throttle:2,1']) //second parameter is minutes
+
+...........................................
+protected function configureRateLimiting()
+    {
+        RateLimiter::for('alpha', function (Request $request) {
+            if (app()->isLocal()){
+                return; //no limit
+            }
+            return Limit::perMinute(5)->by(optional($request->user())->id ?: $request->ip());
+        });
+    }

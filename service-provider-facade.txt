@@ -1,0 +1,20 @@
+App\Services - PaymentService ->methods
+App\Providers - class PaymentServiceProvider extends ServiceProvider ->methods(boot, register)
+config/app.php - register the provider
+App\Facades - class Payment extends Facade ->method(getFacadeAccessor)
+config/app.php - aliases - Facades ->'Payment' => App\Facades\Payment::class,
+
+
+Using the Service and Facade.............
+use Payment;
+public function makePayment()
+{
+    return Payment::processPayment(100);
+}
+
+
+
+Summary..............
+Service: A class with business logic (e.g., PaymentService).
+Service Provider: Binds the service to the service container (e.g., PaymentServiceProvider).
+Facade: Provides a static interface to access the service (e.g., Payment).

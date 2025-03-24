@@ -1,0 +1,14 @@
+1. POM (Project Object Model) starter is a pre-configured Maven 
+dependency that simplifies the setup and integration of 
+various Spring and third-party libraries in a Spring Boot project.
+
+2. Spring Boot Annotations
+3. Spring initializer (Web base tool)
+4. Dependencies (Lombok,Spring web,Spring data JPA,MySQL Driver)
+
+5. JDBC and ODBC are both Application Programming Interfaces (APIs)
+that allow applications to communicate with databases. The main difference 
+between the two is that JDBC is Java-specific, while ODBC is more 
+language-independent
+
+6. 
